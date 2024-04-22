@@ -150,43 +150,36 @@
       // Get all input value
       var emailInput = document.getElementById("email").value;
       var name = document.getElementById("name").value;
-      // var companyName = document.getElementById("companyName").value;
-      // var position = document.getElementById("position").value;
-      // var phoneNo = document.getElementById("phoneNo").value;
-      // var g7Company = document.getElementById("g7Company").value;
-      // var existingG7Project =
-      //   document.getElementById("existingG7Project").value;
-      // var range = document.getElementById("range").value;
-      // var upcomingG7Project =
-      //   document.getElementById("upcomingG7Project").value;
-      // var description = document.getElementById("description").value;
+      var companyName = document.getElementById("companyName").value;
+      var position = document.getElementById("position").value;
+      var phoneNo = document.getElementById("phoneNo").value;
+      var g7Company = document.getElementById("g7Company").value;
+      var existingG7Project =
+        document.getElementById("existingG7Project").value;
+      var range = document.getElementById("range").value;
+      var upcomingG7Project =
+        document.getElementById("upcomingG7Project").value;
+      var description = document.getElementById("description").value;
 
       var data = {
         email: emailInput,
         name: name,
-        // companyName: companyName,
-        // position: position,
-        // phoneNo: phoneNo,
-        // g7Company: g7Company,
-        // existingG7Project: existingG7Project,
-        // range: range,
-        // upcomingG7Project: upcomingG7Project,
-        // description: description,
+        companyName: companyName,
+        position: position,
+        phoneNo: phoneNo,
+        g7Company: g7Company,
+        existingG7Project: existingG7Project,
+        range: range,
+        upcomingG7Project: upcomingG7Project,
+        description: description,
       };
-
-      var data2 = {
-        email: emailInput,
-        name: name,
-      };
-
-      // console.log("🚀 ~ data:", data);
 
       fetch("https://tenderspot-be.bina.cloud/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data2),
+        body: JSON.stringify(data),
       })
         .then((response) => {
           if (response.ok) {
