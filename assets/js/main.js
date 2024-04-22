@@ -174,30 +174,35 @@
         description: description,
       };
 
-      console.log("🚀 ~ data:", data);
+      var data2 = {
+        email: emailInput,
+        name: name,
+      };
 
-      // fetch("https://178.128.97.167/register", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(data),
-      // })
-      //   .then((response) => {
-      //     if (response.ok) {
-      //       console.log("Form submitted successfully");
-      //       // Close the modal
-      //       var modal = new bootstrap.Modal(
-      //         document.getElementById("subscribeModal")
-      //       );
-      //       modal.hide();
-      //     } else {
-      //       console.error("Form submission failed");
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.error("Error:", error);
-      //   });
+      // console.log("🚀 ~ data:", data);
+
+      fetch("https://178.128.97.167/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data2),
+      })
+        .then((response) => {
+          if (response.ok) {
+            console.log("Form submitted successfully");
+            // Close the modal
+            var modal = new bootstrap.Modal(
+              document.getElementById("subscribeModal")
+            );
+            modal.hide();
+          } else {
+            console.error("Form submission failed");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
 
       // Here you can further validate or process the form data before submission
       // For this example, let's just close the modal
