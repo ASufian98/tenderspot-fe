@@ -164,15 +164,17 @@
       var data = {
         email: emailInput,
         name: name,
-        companyName: companyName,
+        company: companyName,
         position: position,
-        phoneNo: phoneNo,
+        phone: phoneNo,
         g7Company: g7Company,
         existingG7Project: existingG7Project,
         range: range,
         upcomingG7Project: upcomingG7Project,
         description: description,
       };
+
+      console.log(data);
 
       fetch("https://tenderspot-be.bina.cloud/register", {
         method: "POST",
