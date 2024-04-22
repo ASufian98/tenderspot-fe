@@ -181,7 +181,7 @@
 
       // console.log("🚀 ~ data:", data);
 
-      fetch("http://tenderspot-be.bina.cloud/register", {
+      fetch("https://tenderspot-be.bina.cloud/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
