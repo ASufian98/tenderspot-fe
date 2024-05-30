@@ -129,12 +129,9 @@
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    // Select all elements with the class 'subscribeButton'
     var subscribeButtons = document.querySelectorAll(".subscribeButton");
-    // Loop through each button and attach a click event listener
     subscribeButtons.forEach(function (button) {
       button.addEventListener("click", function () {
-        // Show the modal when the button is clicked
         var modal = new bootstrap.Modal(
           document.getElementById("subscribeModal")
         );
@@ -142,23 +139,53 @@
       });
     });
 
-    // Get the subscription form element
     var subscriptionForm = document.getElementById("subscriptionForm");
-    // Add submit event listener to the form
+    var g7CompanyRadioButtons = document.querySelectorAll(
+      'input[name="g7Company"]'
+    );
+    var conditionalSection = document.getElementById("conditionalInputs");
+
+    g7CompanyRadioButtons.forEach((button) => {
+      button.addEventListener("change", () => {
+        conditionalSection.style.display =
+          button.value === "Yes" ? "block" : "none";
+      });
+    });
+
     subscriptionForm.addEventListener("submit", function (event) {
       event.preventDefault();
-      // Get all input value
+
       var emailInput = document.getElementById("email").value;
       var name = document.getElementById("name").value;
       var companyName = document.getElementById("companyName").value;
-      var position = document.getElementById("position").value;
+      var positionRadioButtons = document.querySelectorAll(
+        'input[name="position"]:checked'
+      );
+      var position =
+        positionRadioButtons.length > 0 ? positionRadioButtons[0].value : "";
       var phoneNo = document.getElementById("phoneNo").value;
-      var g7Company = document.getElementById("g7Company").value;
+      var g7Company = document.querySelector(
+        'input[name="g7Company"]:checked'
+      ).value;
+      var existingG7ProjectRadioButtons = document.querySelectorAll(
+        'input[name="existingG7Project"]:checked'
+      );
       var existingG7Project =
-        document.getElementById("existingG7Project").value;
-      var range = document.getElementById("range").value;
+        existingG7ProjectRadioButtons.length > 0
+          ? existingG7ProjectRadioButtons[0].value
+          : "";
+      var rangeRadioButtons = document.querySelectorAll(
+        'input[name="range"]:checked'
+      );
+      var range =
+        rangeRadioButtons.length > 0 ? rangeRadioButtons[0].value : "";
+      var upcomingG7ProjectRadioButtons = document.querySelectorAll(
+        'input[name="upcomingG7Project"]:checked'
+      );
       var upcomingG7Project =
-        document.getElementById("upcomingG7Project").value;
+        upcomingG7ProjectRadioButtons.length > 0
+          ? upcomingG7ProjectRadioButtons[0].value
+          : "";
       var description = document.getElementById("description").value;
 
       var data = {
@@ -186,11 +213,7 @@
         .then((response) => {
           if (response.ok) {
             console.log("Form submitted successfully");
-            // Close the modal
-            var modal = new bootstrap.Modal(
-              document.getElementById("subscribeModal")
-            );
-            modal.hide();
+            window.location.href = "contact.html";
           } else {
             console.error("Form submission failed");
           }
@@ -198,13 +221,7 @@
         .catch((error) => {
           console.error("Error:", error);
         });
-
-      // Here you can further validate or process the form data before submission
-      // For this example, let's just close the modal
-      var modal = new bootstrap.Modal(
-        document.getElementById("subscribeModal")
-      );
-      modal.hide();
     });
   });
+
 })();
