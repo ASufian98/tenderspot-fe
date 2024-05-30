@@ -72,7 +72,7 @@ section {
 }
 
 .section {
-  padding: 7rem 0;
+  padding: 2rem 0;
 }
 
 .section-heading {
@@ -1032,4 +1032,37 @@ section {
 
 .social a i {
   line-height: 0;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: orange;
+  position: relative;
+  height: 98%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.timer-text, .timer-display {
+  margin: 0 5px;
+  color: black;
+  font-weight: bold;
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  .timer-container {
+    width: 80%;
+  }
+  .timer-text, .timer-display {
+    margin: 10px 0; /* Adjust the spacing between items */
+  }
+  .timer-text {
+    font-size: 0.9em; /* Adjust the size as needed */
+  }
+  .timer-display {
+    font-size: 1.3em; /* Adjust the size as needed */
+  }
 }
